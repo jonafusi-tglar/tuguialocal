@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cervecería Prisma, Bahía Blanca - TuGuiaLocal</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --verde: #2D6A4F;
+    --verde-claro: #52B788;
+    --arena: #F7F3EE;
+    --tierra: #C17F3A;
+    --oscuro: #1A1A1A;
+    --gris: #6B6B6B;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: var(--arena); color: var(--oscuro); }
+
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    background: rgba(247,243,238,0.95); backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(45,106,79,0.1);
+    padding: 0 2rem; display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+  }
+  .logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--verde); text-decoration: none; }
+  .logo span { color: var(--tierra); }
+  .nav-back { font-size: 0.9rem; color: var(--gris); text-decoration: none; display: flex; align-items: center; gap: 0.4rem; }
+  .nav-back:hover { color: var(--verde); }
+
+  .hero-article {
+    padding: 100px 2rem 3rem;
+    max-width: 780px; margin: 0 auto;
+  }
+  .article-tag {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    background: rgba(45,106,79,0.1); border-radius: 100px;
+    padding: 0.3rem 0.9rem; margin-bottom: 1.2rem;
+    font-size: 0.78rem; font-weight: 600; color: var(--verde);
+    letter-spacing: 0.05em; text-transform: uppercase;
+  }
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 900; line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+  .article-subtitle {
+    font-size: 1.15rem; color: var(--gris);
+    line-height: 1.7; margin-bottom: 2rem;
+    border-left: 3px solid var(--verde-claro);
+    padding-left: 1rem;
+  }
+  .article-meta {
+    display: flex; gap: 1.5rem; flex-wrap: wrap;
+    font-size: 0.83rem; color: var(--gris);
+    padding-bottom: 2rem; border-bottom: 1px solid rgba(0,0,0,0.08);
+    margin-bottom: 2.5rem;
+  }
+  .article-meta span { display: flex; align-items: center; gap: 0.3rem; }
+
+  /* VEREDICTO RÁPIDO */
+  .veredicto {
+    background: white; border-radius: 16px;
+    padding: 1.5rem 2rem; margin-bottom: 2.5rem;
+    border: 1px solid rgba(0,0,0,0.06);
+  }
+  .veredicto h3 {
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--tierra); margin-bottom: 1rem;
+  }
+  .v-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem; }
+  .v-item { text-align: center; }
+  .v-emoji { font-size: 1.8rem; display: block; margin-bottom: 0.3rem; }
+  .v-label { font-size: 0.78rem; color: var(--gris); }
+  .v-value { font-size: 0.9rem; font-weight: 600; color: var(--oscuro); }
+
+  /* CONTENIDO */
+  .article-body { line-height: 1.85; font-size: 1.05rem; }
+  .article-body p { margin-bottom: 1.5rem; color: #2a2a2a; }
+  .article-body h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem; font-weight: 700;
+    margin: 2.5rem 0 1rem; color: var(--oscuro);
+  }
+
+  /* PRO/CONTRA */
+  .pro-contra {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1rem; margin: 2rem 0;
+  }
+  .pro, .contra {
+    border-radius: 12px; padding: 1.25rem;
+  }
+  .pro { background: rgba(82,183,136,0.1); border: 1px solid rgba(82,183,136,0.3); }
+  .contra { background: rgba(193,127,58,0.08); border: 1px solid rgba(193,127,58,0.25); }
+  .pro h4 { color: var(--verde); font-size: 0.85rem; font-weight: 700; margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .contra h4 { color: var(--tierra); font-size: 0.85rem; font-weight: 700; margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .pro ul, .contra ul { list-style: none; }
+  .pro li, .contra li { font-size: 0.9rem; padding: 0.3rem 0; color: #333; }
+  .pro li::before { content: "✓ "; color: var(--verde); font-weight: 700; }
+  .contra li::before { content: "→ "; color: var(--tierra); font-weight: 700; }
+
+  /* DATO DESTACADO */
+  .highlight-box {
+    background: var(--verde); color: white;
+    border-radius: 12px; padding: 1.5rem 2rem;
+    margin: 2rem 0; font-size: 1.05rem; line-height: 1.7;
+  }
+  .highlight-box strong { display: block; font-size: 1.2rem; margin-bottom: 0.4rem; }
+
+  /* INFO PRÁCTICA */
+  .info-practica {
+    background: white; border-radius: 16px;
+    padding: 1.5rem 2rem; margin: 2rem 0;
+    border: 1px solid rgba(0,0,0,0.06);
+  }
+  .info-practica h3 {
+    font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--tierra); margin-bottom: 1rem;
+  }
+  .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.75rem; }
+  .info-item { font-size: 0.9rem; color: #333; display: flex; gap: 0.5rem; }
+  .info-item span:first-child { font-size: 1.1rem; }
+
+  @media (max-width: 600px) {
+    .pro-contra { grid-template-columns: 1fr; }
+    .hero-article { padding: 90px 1.2rem 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="index.html">Tu<span>Guia</span>Local</a>
+  <a class="nav-back" href="index.html">← Volver al inicio</a>
+</nav>
+
+<article class="hero-article">
+
+  <div class="article-tag">🍺 Cervecería · Bahía Blanca</div>
+
+  <h1>Cervecería Prisma: el lugar donde el tiempo pasa distinto</h1>
+
+  <p class="article-subtitle">
+    Si vas apurado, no es tu lugar. Pero si tenés la noche libre y ganas de disfrutar de verdad, Prisma es de los mejores planes que tiene Bahía Blanca.
+  </p>
+
+  <div class="article-meta">
+    <span>📍 Bartolomé Mitre 418, Bahía Blanca</span>
+    <span>⏱ 4 min de lectura</span>
+    <span>✍️ Reseña personal</span>
+  </div>
+
+  <!-- VEREDICTO -->
+  <div class="veredicto">
+    <h3>⚡ Veredicto rápido</h3>
+    <div class="v-grid">
+      <div class="v-item">
+        <span class="v-emoji">🍕</span>
+        <div class="v-value">Muy buena</div>
+        <div class="v-label">Comida</div>
+      </div>
+      <div class="v-item">
+        <span class="v-emoji">🍺</span>
+        <div class="v-value">Rica, fría justa</div>
+        <div class="v-label">Cerveza</div>
+      </div>
+      <div class="v-item">
+        <span class="v-emoji">⏳</span>
+        <div class="v-value">Lenta</div>
+        <div class="v-label">Demora</div>
+      </div>
+      <div class="v-item">
+        <span class="v-emoji">🌿</span>
+        <div class="v-value">Excelente</div>
+        <div class="v-label">Ambiente</div>
+      </div>
+      <div class="v-item">
+        <span class="v-emoji">💰</span>
+        <div class="v-value">Accesible</div>
+        <div class="v-label">Precio</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CUERPO -->
+  <div class="article-body">
+
+    <p>Hay lugares en los que entrás y ya sabés que no vas a querer irte rápido. Cervecería Prisma es uno de esos. Desde el primer momento el ambiente te invita a instalarte, pedir algo rico y dejar que la noche fluya sola.</p>
+
+    <h2>El ambiente, el gran diferencial</h2>
+
+    <p>Prisma tiene algo que pocos bares de Bahía logran: varias personalidades en un mismo espacio. El patio es el protagonista, con mesas bien distribuidas y una estética cuidada que no intenta ser lo que no es. Después está el salón interior para los días de frío, la planta alta y el balcón. Cada rincón tiene su onda.</p>
+
+    <p>Además suelen tener bandas en vivo en un escenario chiquito que tienen armado. No es un recital, es música para acompañar la salida, y eso suma mucho al clima del lugar. Es como estar en tu living, pero con buena cerveza, comida rica y alguien que te atiende. ¿Qué más querés?</p>
+
+    <div class="highlight-box">
+      <strong>🕐 El consejo más importante antes de ir</strong>
+      No vayas apurado. En serio. Entre que llegás, pedís y llega la comida, te podés tomar tranquilamente dos pintas. Si eso te pone nervioso, Prisma no es para esa noche. Pero si tenés tiempo libre y ganas de disfrutar, vas a salir contento.
+    </div>
+
+    <h2>La comida: vale la espera</h2>
+
+    <p>He probado pizzas, hamburguesas, papas fritas, tequeños... y todo estuvo muy rico. La cocina no es rápida, pero cuando llega, llega bien. Las pizzas tienen buena masa, las hamburguesas están a la altura, y los tequeños son uno de esos pedidos que siempre terminan repetidos.</p>
+
+    <p>La carta tiene variedad suficiente para ir varias veces y probar cosas distintas, lo cual habla bien del lugar. No es un menú de dos opciones: hay para elegir y para volver.</p>
+
+    <h2>Las cervezas: ricas, aunque con un pero</h2>
+
+    <p>Las cervezas artesanales son el corazón del lugar y están buenas. Hay variedad de estilos y todas tienen carácter. El único detalle que noté en mis visitas es que la temperatura no siempre es la ideal. No arruina la experiencia, pero es algo a tener en cuenta si sos de los que le dan importancia a ese detalle.</p>
+
+    <!-- PRO/CONTRA -->
+    <div class="pro-contra">
+      <div class="pro">
+        <h4>👍 Lo mejor</h4>
+        <ul>
+          <li>Ambiente único en Bahía</li>
+          <li>Comida muy rica</li>
+          <li>Varias zonas para elegir</li>
+          <li>Música en vivo seguido</li>
+          <li>Precios accesibles</li>
+          <li>Descuento pagando en efectivo</li>
+        </ul>
+      </div>
+      <div class="contra">
+        <h4>⚠️ A tener en cuenta</h4>
+        <ul>
+          <li>La demora es real, ir sin apuro</li>
+          <li>Temperatura de la cerveza irregular</li>
+          <li>Noches concurridas = más espera</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>¿Para qué ocasión lo recomiendo?</h2>
+
+    <p>Para una salida de noche con amigos donde el plan sea quedarse un rato largo. Para una cita donde querés un ambiente lindo sin que sea demasiado formal. Para cerrar la semana con tranquilidad. No lo recomendaría si tenés que comer rápido antes de algo — para eso hay otros lugares.</p>
+
+    <!-- INFO PRÁCTICA -->
+    <div class="info-practica">
+      <h3>📋 Información práctica</h3>
+      <div class="info-grid">
+        <div class="info-item"><span>📍</span><span>Bartolomé Mitre 418</span></div>
+        <div class="info-item"><span>🍺</span><span>Cervecería artesanal</span></div>
+        <div class="info-item"><span>🎵</span><span>Música en vivo frecuente</span></div>
+        <div class="info-item"><span>💵</span><span>10% descuento en efectivo</span></div>
+        <div class="info-item"><span>🅿️</span><span>Estacionamiento gratuito</span></div>
+        <div class="info-item"><span>📱</span><span>@cerveceriaprisma</span></div>
+      </div>
+    </div>
+
+    <p>En resumen: Prisma es uno de esos lugares que Bahía Blanca necesita y que vale la pena conocer. No es perfecto, pero tiene mucho más para dar que para criticar. Y cuando el ambiente, la comida y la compañía se alinean, es difícil encontrar una mejor noche en la ciudad.</p>
+
+  </div>
+
+</article>
+
+</body>
+</html>

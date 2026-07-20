@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Óptica Grossoni, Bahía Blanca - TuGuiaLocal</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --verde: #2D6A4F;
+    --verde-claro: #52B788;
+    --arena: #F7F3EE;
+    --tierra: #C17F3A;
+    --oscuro: #1A1A1A;
+    --gris: #6B6B6B;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: var(--arena); color: var(--oscuro); }
+
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    background: rgba(247,243,238,0.95); backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(45,106,79,0.1);
+    padding: 0 2rem; display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+  }
+  .logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--verde); text-decoration: none; }
+  .logo span { color: var(--tierra); }
+  .nav-back { font-size: 0.9rem; color: var(--gris); text-decoration: none; display: flex; align-items: center; gap: 0.4rem; }
+  .nav-back:hover { color: var(--verde); }
+
+  .hero-article { padding: 100px 2rem 3rem; max-width: 780px; margin: 0 auto; }
+  .article-tag {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    background: rgba(45,106,79,0.1); border-radius: 100px;
+    padding: 0.3rem 0.9rem; margin-bottom: 1.2rem;
+    font-size: 0.78rem; font-weight: 600; color: var(--verde);
+    letter-spacing: 0.05em; text-transform: uppercase;
+  }
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 900; line-height: 1.15; margin-bottom: 1rem;
+  }
+  .article-subtitle {
+    font-size: 1.15rem; color: var(--gris); line-height: 1.7; margin-bottom: 2rem;
+    border-left: 3px solid var(--verde-claro); padding-left: 1rem;
+  }
+  .article-meta {
+    display: flex; gap: 1.5rem; flex-wrap: wrap;
+    font-size: 0.83rem; color: var(--gris);
+    padding-bottom: 2rem; border-bottom: 1px solid rgba(0,0,0,0.08);
+    margin-bottom: 2.5rem;
+  }
+
+  .veredicto {
+    background: white; border-radius: 16px;
+    padding: 1.5rem 2rem; margin-bottom: 2.5rem;
+    border: 1px solid rgba(0,0,0,0.06);
+  }
+  .veredicto h3 {
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--tierra); margin-bottom: 1rem;
+  }
+  .v-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 1rem; }
+  .v-item { text-align: center; }
+  .v-emoji { font-size: 1.8rem; display: block; margin-bottom: 0.3rem; }
+  .v-label { font-size: 0.78rem; color: var(--gris); }
+  .v-value { font-size: 0.9rem; font-weight: 600; color: var(--oscuro); }
+
+  .article-body { line-height: 1.85; font-size: 1.05rem; }
+  .article-body p { margin-bottom: 1.5rem; color: #2a2a2a; }
+  .article-body h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem; font-weight: 700;
+    margin: 2.5rem 0 1rem; color: var(--oscuro);
+  }
+
+  .highlight-box {
+    background: var(--verde); color: white;
+    border-radius: 12px; padding: 1.5rem 2rem;
+    margin: 2rem 0; font-size: 1.05rem; line-height: 1.7;
+  }
+  .highlight-box strong { display: block; font-size: 1.2rem; margin-bottom: 0.4rem; }
+
+  .pro-contra { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 2rem 0; }
+  .pro, .contra { border-radius: 12px; padding: 1.25rem; }
+  .pro { background: rgba(82,183,136,0.1); border: 1px solid rgba(82,183,136,0.3); }
+  .contra { background: rgba(193,127,58,0.08); border: 1px solid rgba(193,127,58,0.25); }
+  .pro h4 { color: var(--verde); font-size: 0.85rem; font-weight: 700; margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .contra h4 { color: var(--tierra); font-size: 0.85rem; font-weight: 700; margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .pro ul, .contra ul { list-style: none; }
+  .pro li, .contra li { font-size: 0.9rem; padding: 0.3rem 0; color: #333; }
+  .pro li::before { content: "✓ "; color: var(--verde); font-weight: 700; }
+  .contra li::before { content: "→ "; color: var(--tierra); font-weight: 700; }
+
+  .info-practica {
+    background: white; border-radius: 16px;
+    padding: 1.5rem 2rem; margin: 2rem 0;
+    border: 1px solid rgba(0,0,0,0.06);
+  }
+  .info-practica h3 {
+    font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--tierra); margin-bottom: 1rem;
+  }
+  .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.75rem; }
+  .info-item { font-size: 0.9rem; color: #333; display: flex; gap: 0.5rem; }
+
+  @media (max-width: 600px) {
+    .pro-contra { grid-template-columns: 1fr; }
+    .hero-article { padding: 90px 1.2rem 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="index.html">Tu<span>Guia</span>Local</a>
+  <a class="nav-back" href="index.html">← Volver al inicio</a>
+</nav>
+
+<article class="hero-article">
+
+  <div class="article-tag">👓 Óptica · Bahía Blanca</div>
+
+  <h1>Óptica Grossoni: 35 años no se mantienen solos</h1>
+
+  <p class="article-subtitle">
+    Llegué por recomendación de desconocidos en Facebook y me fui con los lentes listos al día siguiente. Hay lugares que duran décadas por algo.
+  </p>
+
+  <div class="article-meta">
+    <span>📍 Estomba 688, Bahía Blanca</span>
+    <span>⏱ 3 min de lectura</span>
+    <span>✍️ Reseña personal</span>
+  </div>
+
+  <div class="veredicto">
+    <h3>⚡ Veredicto rápido</h3>
+    <div class="v-grid">
+      <div class="v-item">
+        <span class="v-emoji">😊</span>
+        <div class="v-value">Excelente</div>
+        <div class="v-label">Atención</div>
+      </div>
+      <div class="v-item">
+        <span class="v-emoji">⚡</span>
+        <div class="v-value">El mismo día</div>
+        <div class="v-label">Entrega</div>
+      </div>
+      <div class="v-item">
+        <span class="v-emoji">💰</span>
+        <div class="v-value">Muy bueno</div>
+        <div class="v-label">Precio</div>
+      </div>
+      <div class="v-item">
+        <span class="v-emoji">🏆</span>
+        <div class="v-value">35 años</div>
+        <div class="v-label">Trayectoria</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="article-body">
+
+    <p>Cuando necesitás cambiar los cristales de tus lentes y no sabés bien a dónde ir, terminás haciendo lo que hace todo el mundo hoy: preguntar en Facebook. Eso hice yo en el grupo "Alguien Sabe? Yo se! Bahia Blanca y Zona (OFICIAL)", y la respuesta fue casi unánime: Grossoni.</p>
+
+    <h2>Cómo llegué ahí</h2>
+
+    <p>Con esa recomendación masiva de gente que no se conoce entre sí fui a ver qué onda. Lo primero que hice al llegar fue contarles de dónde venía — que los había encontrado por los comentarios en Facebook. La reacción de las chicas que me atendieron fue inmediata: se alegraron genuinamente y me contaron que el negocio tiene más de 35 años en Bahía Blanca. En ese momento entendí todo. Un negocio no dura tanto tiempo si no hace las cosas bien.</p>
+
+    <div class="highlight-box">
+      <strong>⚡ Lo que más me sorprendió</strong>
+      Dejé mis marcos para cambiar los cristales y el mismo día recibí un mensaje diciéndome que ya estaban listos para retirar. En una ciudad donde todo tarda, eso vale oro.
+    </div>
+
+    <h2>La atención, el gran diferencial</h2>
+
+    <p>Las chicas que atienden tienen un carisma especial. No es la atención fría y mecánica de algunos comercios — es algo genuino, cálido, de persona a persona. Se nota que les gusta lo que hacen y que conocen bien el negocio. Eso genera confianza inmediata, especialmente cuando estás eligiendo algo que vas a usar todos los días en la cara.</p>
+
+    <h2>Precios y formas de pago</h2>
+
+    <p>Para el tipo de cristales que elegí el precio me pareció muy accesible. Y algo que valoro mucho: fueron completamente transparentes con las formas de pago. Te explican claramente las diferencias de precio entre efectivo, transferencia y tarjeta de crédito, sin sorpresas ni letra chica. Eso habla bien de cualquier negocio.</p>
+
+    <div class="pro-contra">
+      <div class="pro">
+        <h4>👍 Lo mejor</h4>
+        <ul>
+          <li>Entrega el mismo día</li>
+          <li>Atención cálida y genuina</li>
+          <li>35 años de experiencia</li>
+          <li>Precios accesibles</li>
+          <li>Transparencia en los pagos</li>
+          <li>Muy recomendados en Bahía</li>
+        </ul>
+      </div>
+      <div class="contra">
+        <h4>⚠️ A tener en cuenta</h4>
+        <ul>
+          <li>Precio varía según forma de pago</li>
+          <li>Consultar disponibilidad de marcos</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>¿Volvería?</h2>
+
+    <p>Sin dudas. De hecho ya estoy pensando en volver para hacerme otros marcos y variar el look. Cuando un lugar te genera esa sensación después de la primera visita, es señal de que algo están haciendo muy bien. En Bahía Blanca hay varias ópticas, pero entiendo perfectamente por qué la gente sigue eligiendo Grossoni después de tantos años.</p>
+
+    <div class="info-practica">
+      <h3>📋 Información práctica</h3>
+      <div class="info-grid">
+        <div class="info-item"><span>📍</span><span>Estomba 688, Bahía Blanca</span></div>
+        <div class="info-item"><span>📞</span><span>(0291) 454-0917</span></div>
+        <div class="info-item"><span>⚡</span><span>Entrega el mismo día</span></div>
+        <div class="info-item"><span>💳</span><span>Efectivo, transferencia y tarjeta</span></div>
+        <div class="info-item"><span>🏆</span><span>Más de 35 años en Bahía</span></div>
+        <div class="info-item"><span>📱</span><span>@opticagrossoni</span></div>
+      </div>
+    </div>
+
+    <p>Si estás buscando una óptica en Bahía Blanca con experiencia, buena atención y precios razonables, Grossoni es una apuesta segura. La recomendación de los bahienses no falla.</p>
+
+  </div>
+
+</article>
+
+</body>
+</html>

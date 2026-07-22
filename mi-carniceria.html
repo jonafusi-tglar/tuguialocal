@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mi Carnicería, Bahía Blanca - TuGuiaLocal</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --verde: #2D6A4F;
+    --verde-claro: #52B788;
+    --arena: #F7F3EE;
+    --tierra: #C17F3A;
+    --oscuro: #1A1A1A;
+    --gris: #6B6B6B;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: var(--arena); color: var(--oscuro); }
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    background: rgba(247,243,238,0.95); backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(45,106,79,0.1);
+    padding: 0 2rem; display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+  }
+  .logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--verde); text-decoration: none; }
+  .logo span { color: var(--tierra); }
+  .nav-back { font-size: 0.9rem; color: var(--gris); text-decoration: none; }
+  .nav-back:hover { color: var(--verde); }
+  .hero-article { padding: 100px 2rem 3rem; max-width: 780px; margin: 0 auto; }
+  .article-tag {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    background: rgba(45,106,79,0.1); border-radius: 100px;
+    padding: 0.3rem 0.9rem; margin-bottom: 1.2rem;
+    font-size: 0.78rem; font-weight: 600; color: var(--verde);
+    letter-spacing: 0.05em; text-transform: uppercase;
+  }
+  h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 900; line-height: 1.15; margin-bottom: 1rem; }
+  .article-subtitle { font-size: 1.15rem; color: var(--gris); line-height: 1.7; margin-bottom: 2rem; border-left: 3px solid var(--verde-claro); padding-left: 1rem; }
+  .article-meta { display: flex; gap: 1.5rem; flex-wrap: wrap; font-size: 0.83rem; color: var(--gris); padding-bottom: 2rem; border-bottom: 1px solid rgba(0,0,0,0.08); margin-bottom: 2.5rem; }
+  .veredicto { background: white; border-radius: 16px; padding: 1.5rem 2rem; margin-bottom: 2.5rem; border: 1px solid rgba(0,0,0,0.06); }
+  .veredicto h3 { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--tierra); margin-bottom: 1rem; }
+  .v-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 1rem; }
+  .v-item { text-align: center; }
+  .v-emoji { font-size: 1.8rem; display: block; margin-bottom: 0.3rem; }
+  .v-label { font-size: 0.78rem; color: var(--gris); }
+  .v-value { font-size: 0.9rem; font-weight: 600; color: var(--oscuro); }
+  .article-body { line-height: 1.85; font-size: 1.05rem; }
+  .article-body p { margin-bottom: 1.5rem; color: #2a2a2a; }
+  .article-body h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; margin: 2.5rem 0 1rem; color: var(--oscuro); }
+  .highlight-box { background: var(--verde); color: white; border-radius: 12px; padding: 1.5rem 2rem; margin: 2rem 0; font-size: 1.05rem; line-height: 1.7; }
+  .highlight-box strong { display: block; font-size: 1.2rem; margin-bottom: 0.4rem; }
+  .pro-contra { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 2rem 0; }
+  .pro, .contra { border-radius: 12px; padding: 1.25rem; }
+  .pro { background: rgba(82,183,136,0.1); border: 1px solid rgba(82,183,136,0.3); }
+  .contra { background: rgba(193,127,58,0.08); border: 1px solid rgba(193,127,58,0.25); }
+  .pro h4 { color: var(--verde); font-size: 0.85rem; font-weight: 700; margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .contra h4 { color: var(--tierra); font-size: 0.85rem; font-weight: 700; margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .pro ul, .contra ul { list-style: none; }
+  .pro li, .contra li { font-size: 0.9rem; padding: 0.3rem 0; color: #333; }
+  .pro li::before { content: "✓ "; color: var(--verde); font-weight: 700; }
+  .contra li::before { content: "→ "; color: var(--tierra); font-weight: 700; }
+  .info-practica { background: white; border-radius: 16px; padding: 1.5rem 2rem; margin: 2rem 0; border: 1px solid rgba(0,0,0,0.06); }
+  .info-practica h3 { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--tierra); margin-bottom: 1rem; }
+  .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.75rem; }
+  .info-item { font-size: 0.9rem; color: #333; display: flex; gap: 0.5rem; }
+  @media (max-width: 600px) { .pro-contra { grid-template-columns: 1fr; } .hero-article { padding: 90px 1.2rem 2rem; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="index.html">Tu<span>Guia</span>Local</a>
+  <a class="nav-back" href="index.html">← Volver al inicio</a>
+</nav>
+
+<article class="hero-article">
+
+  <div class="article-tag">🥩 Carnicería · Bahía Blanca</div>
+
+  <h1>Mi Carnicería: el lugar que te hace sentir en casa desde el primer día</h1>
+
+  <p class="article-subtitle">
+    Hay comercios que venden productos. Y hay comercios que te reciben como personas. Mi Carnicería es de los segundos.
+  </p>
+
+  <div class="article-meta">
+    <span>📍 Av. Colón y Santa Fe, Bahía Blanca</span>
+    <span>⏱ 3 min de lectura</span>
+    <span>✍️ Reseña personal</span>
+  </div>
+
+  <div class="veredicto">
+    <h3>⚡ Veredicto rápido</h3>
+    <div class="v-grid">
+      <div class="v-item">
+        <span class="v-emoji">🤝</span>
+        <div class="v-value">Excepcional</div>
+        <div class="v-label">Atención</div>
+      </div>
+      <div class="v-item">
+        <span class="v-emoji">🥩</span>
+        <div class="v-value">Primera calidad</div>
+        <div class="v-label">Productos</div>
+      </div>
+      <div class="v-item">
+        <span class="v-emoji">💳</span>
+        <div class="v-value">Sin problemas</div>
+        <div class="v-label">Formas de pago</div>
+      </div>
+      <div class="v-item">
+        <span class="v-emoji">😊</span>
+        <div class="v-value">Te llaman por nombre</div>
+        <div class="v-label">Trato</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="article-body">
+
+    <p>Llegar a una ciudad nueva y encontrar un lugar donde te traten como si te conocieran de toda la vida no es algo que pase seguido. Mi Carnicería fue el primer comercio que me hizo sentir cómodo en Bahía Blanca desde que llegué a instalarme acá. Y eso no se olvida.</p>
+
+    <h2>Marcos: el dueño que sabe tu nombre</h2>
+
+    <p>El dueño, Marcos, tiene ese don poco común de conectar genuinamente con cada persona que entra. No solo te atiende — te llama por tu nombre, te pregunta cómo estás, cómo está tu entorno. Mientras te prepara lo que pediste, mantiene una conversación real, de esas que hacen que el tiempo pase diferente. Y no es solo con vos: con todos los clientes es igual. Se nota que es su forma de ser, no una técnica de ventas.</p>
+
+    <div class="highlight-box">
+      <strong>🥩 Calidad que vale su precio</strong>
+      La carne es de primera calidad y el precio lo justifica. No es el lugar más barato de Bahía, pero es el lugar donde sabés exactamente lo que estás comprando. Calidad en el producto y calidad en el servicio — las dos cosas juntas en el mismo lugar.
+    </div>
+
+    <h2>Un lujo que está a la vuelta de la esquina</h2>
+
+    <p>Ir a comprar carne suele ser un trámite. En Mi Carnicería es otra cosa — es un momento del día que uno termina disfrutando. Eso habla de algo que va mucho más allá del producto: habla de la persona que está detrás del mostrador y de cómo elige relacionarse con su clientela.</p>
+
+    <div class="pro-contra">
+      <div class="pro">
+        <h4>👍 Lo mejor</h4>
+        <ul>
+          <li>Atención personalizada de verdad</li>
+          <li>Marcos te llama por tu nombre</li>
+          <li>Carne de primera calidad</li>
+          <li>Sin problemas con los pagos</li>
+          <li>Ambiente cálido y familiar</li>
+        </ul>
+      </div>
+      <div class="contra">
+        <h4>⚠️ A tener en cuenta</h4>
+        <ul>
+          <li>No es el más económico del barrio</li>
+          <li>Cierra a las 21hs</li>
+        </ul>
+      </div>
+    </div>
+
+    <p>Si buscás una carnicería donde la calidad del producto y la calidad del trato vayan de la mano, Mi Carnicería es la respuesta. Un lujo al que vale la pena volver.</p>
+
+    <div class="info-practica">
+      <h3>📋 Información práctica</h3>
+      <div class="info-grid">
+        <div class="info-item"><span>📍</span><span>Av. Colón y Santa Fe, Bahía Blanca</span></div>
+        <div class="info-item"><span>📞</span><span>0291 15-435-6213</span></div>
+        <div class="info-item"><span>🕘</span><span>Cierra a las 21hs</span></div>
+        <div class="info-item"><span>💳</span><span>Múltiples formas de pago</span></div>
+        <div class="info-item"><span>🥩</span><span>Carnes de primera calidad</span></div>
+      </div>
+    </div>
+
+  </div>
+
+</article>
+
+</body>
+</html>

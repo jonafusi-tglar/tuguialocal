@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fiambrería Potreritos, Bahía Blanca - TuGuiaLocal</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --verde: #2D6A4F;
+    --verde-claro: #52B788;
+    --arena: #F7F3EE;
+    --tierra: #C17F3A;
+    --oscuro: #1A1A1A;
+    --gris: #6B6B6B;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: var(--arena); color: var(--oscuro); }
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    background: rgba(247,243,238,0.95); backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(45,106,79,0.1);
+    padding: 0 2rem; display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+  }
+  .logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--verde); text-decoration: none; }
+  .logo span { color: var(--tierra); }
+  .nav-back { font-size: 0.9rem; color: var(--gris); text-decoration: none; }
+  .nav-back:hover { color: var(--verde); }
+  .hero-article { padding: 100px 2rem 3rem; max-width: 780px; margin: 0 auto; }
+  .article-tag {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    background: rgba(45,106,79,0.1); border-radius: 100px;
+    padding: 0.3rem 0.9rem; margin-bottom: 1.2rem;
+    font-size: 0.78rem; font-weight: 600; color: var(--verde);
+    letter-spacing: 0.05em; text-transform: uppercase;
+  }
+  h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 900; line-height: 1.15; margin-bottom: 1rem; }
+  .article-subtitle { font-size: 1.15rem; color: var(--gris); line-height: 1.7; margin-bottom: 2rem; border-left: 3px solid var(--verde-claro); padding-left: 1rem; }
+  .article-meta { display: flex; gap: 1.5rem; flex-wrap: wrap; font-size: 0.83rem; color: var(--gris); padding-bottom: 2rem; border-bottom: 1px solid rgba(0,0,0,0.08); margin-bottom: 2.5rem; }
+  .veredicto { background: white; border-radius: 16px; padding: 1.5rem 2rem; margin-bottom: 2.5rem; border: 1px solid rgba(0,0,0,0.06); }
+  .veredicto h3 { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--tierra); margin-bottom: 1rem; }
+  .v-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 1rem; }
+  .v-item { text-align: center; }
+  .v-emoji { font-size: 1.8rem; display: block; margin-bottom: 0.3rem; }
+  .v-label { font-size: 0.78rem; color: var(--gris); }
+  .v-value { font-size: 0.9rem; font-weight: 600; color: var(--oscuro); }
+  .article-body { line-height: 1.85; font-size: 1.05rem; }
+  .article-body p { margin-bottom: 1.5rem; color: #2a2a2a; }
+  .article-body h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; margin: 2.5rem 0 1rem; color: var(--oscuro); }
+  .highlight-box { background: var(--verde); color: white; border-radius: 12px; padding: 1.5rem 2rem; margin: 2rem 0; font-size: 1.05rem; line-height: 1.7; }
+  .highlight-box strong { display: block; font-size: 1.2rem; margin-bottom: 0.4rem; }
+  .pro-contra { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 2rem 0; }
+  .pro, .contra { border-radius: 12px; padding: 1.25rem; }
+  .pro { background: rgba(82,183,136,0.1); border: 1px solid rgba(82,183,136,0.3); }
+  .contra { background: rgba(193,127,58,0.08); border: 1px solid rgba(193,127,58,0.25); }
+  .pro h4 { color: var(--verde); font-size: 0.85rem; font-weight: 700; margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .contra h4 { color: var(--tierra); font-size: 0.85rem; font-weight: 700; margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .pro ul, .contra ul { list-style: none; }
+  .pro li, .contra li { font-size: 0.9rem; padding: 0.3rem 0; color: #333; }
+  .pro li::before { content: "✓ "; color: var(--verde); font-weight: 700; }
+  .contra li::before { content: "→ "; color: var(--tierra); font-weight: 700; }
+  .info-practica { background: white; border-radius: 16px; padding: 1.5rem 2rem; margin: 2rem 0; border: 1px solid rgba(0,0,0,0.06); }
+  .info-practica h3 { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--tierra); margin-bottom: 1rem; }
+  .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.75rem; }
+  .info-item { font-size: 0.9rem; color: #333; display: flex; gap: 0.5rem; }
+  @media (max-width: 600px) { .pro-contra { grid-template-columns: 1fr; } .hero-article { padding: 90px 1.2rem 2rem; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="index.html">Tu<span>Guia</span>Local</a>
+  <a class="nav-back" href="index.html">← Volver al inicio</a>
+</nav>
+
+<article class="hero-article">
+
+  <div class="article-tag">🧀 Fiambrería · Bahía Blanca</div>
+
+  <h1>Fiambrería Potreritos: calidad, confianza y el queso mantecoso más rico de Bahía</h1>
+
+  <p class="article-subtitle">
+    Otro de esos lugares que te hacen sentir bahiense desde el primer día. Productos de primera y una atención que te hace volver.
+  </p>
+
+  <div class="article-meta">
+    <span>📍 Viamonte 80, Bahía Blanca</span>
+    <span>⏱ 3 min de lectura</span>
+    <span>✍️ Reseña personal</span>
+  </div>
+
+  <div class="veredicto">
+    <h3>⚡ Veredicto rápido</h3>
+    <div class="v-grid">
+      <div class="v-item">
+        <span class="v-emoji">🧀</span>
+        <div class="v-value">Espectacular</div>
+        <div class="v-label">Productos</div>
+      </div>
+      <div class="v-item">
+        <span class="v-emoji">🤝</span>
+        <div class="v-value">Excelente</div>
+        <div class="v-label">Atención</div>
+      </div>
+      <div class="v-item">
+        <span class="v-emoji">💰</span>
+        <div class="v-value">Muy buenos</div>
+        <div class="v-label">Precios</div>
+      </div>
+      <div class="v-item">
+        <span class="v-emoji">⭐</span>
+        <div class="v-value">4.7 / 5</div>
+        <div class="v-label">228 opiniones</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="article-body">
+
+    <p>Cuando llegué a Bahía Blanca a instalarme, había ciertos lugares que necesitaba encontrar para sentirme en casa. Potreritos fue uno de ellos. Desde la primera visita, la atención y la calidad de los productos me hicieron sentir que estaba en el lugar correcto.</p>
+
+    <h2>Productos que hablan por sí solos</h2>
+
+    <p>La variedad de quesos y fiambres es amplia y la calidad es consistente en todo lo que ofrecen. Pero hay algo que los distingue especialmente: uno de sus quesos mantecosos es de producción propia y es riquísimo — de esos que uno no puede dejar de pedir en cada visita.</p>
+
+    <div class="highlight-box">
+      <strong>🧀 El consejo más importante</strong>
+      Si vas por primera vez y no sabés qué salame elegir, pedí recomendación. Podés confiar plenamente en lo que te sugieran — saben lo que tienen y van a acertarte. Esa confianza no se construye de un día para el otro.
+    </div>
+
+    <h2>Una atención que te hace sentir de acá</h2>
+
+    <p>Al igual que los mejores comercios de barrio, en Potreritos no sos un cliente anónimo. La atención es cálida, personalizada y genuina. Con 228 opiniones y 4.7 estrellas en Google, no soy el único que lo notó. Ese nivel de consistencia a lo largo del tiempo dice todo sobre cómo manejan el negocio.</p>
+
+    <div class="pro-contra">
+      <div class="pro">
+        <h4>👍 Lo mejor</h4>
+        <ul>
+          <li>Queso mantecoso de producción propia</li>
+          <li>Fiambres de calidad espectacular</li>
+          <li>Recomendaciones en las que podés confiar</li>
+          <li>Atención cálida y personalizada</li>
+          <li>Excelente relación precio/calidad</li>
+          <li>4.7 estrellas con 228 opiniones</li>
+        </ul>
+      </div>
+      <div class="contra">
+        <h4>⚠️ A tener en cuenta</h4>
+        <ul>
+          <li>Consultar horarios antes de ir</li>
+          <li>Puede haber fila en horario pico</li>
+        </ul>
+      </div>
+    </div>
+
+    <p>Si buscás una fiambrería con productos de verdad, atención de verdad y precios razonables, Potreritos es una de las mejores opciones de Bahía Blanca. Totalmente recomendada.</p>
+
+    <div class="info-practica">
+      <h3>📋 Información práctica</h3>
+      <div class="info-grid">
+        <div class="info-item"><span>📍</span><span>Viamonte 80, Bahía Blanca</span></div>
+        <div class="info-item"><span>🧀</span><span>Quesos y fiambres de calidad</span></div>
+        <div class="info-item"><span>🏠</span><span>Queso mantecoso propio</span></div>
+        <div class="info-item"><span>⭐</span><span>4.7 estrellas · 228 opiniones</span></div>
+        <div class="info-item"><span>📱</span><span>@quesos_potreritos</span></div>
+      </div>
+    </div>
+
+  </div>
+
+</article>
+
+</body>
+</html>

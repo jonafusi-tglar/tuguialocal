@@ -120,9 +120,29 @@
   footer p { font-size: 0.85rem; line-height: 1.7; }
   footer a { color: var(--verde-claro); text-decoration: none; }
 
+  .destacada { padding: 3.5rem 2rem 0; background: var(--arena); }
+  .destacada-card { display: grid; grid-template-columns: 1fr 1.3fr; background: white; border-radius: 16px; overflow: hidden; text-decoration: none; color: inherit; border: 1px solid rgba(0,0,0,0.06); transition: transform 0.2s, box-shadow 0.2s; }
+  .destacada-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.1); }
+  .destacada-thumb { display: flex; align-items: center; justify-content: center; font-size: 6rem; min-height: 260px; }
+  .destacada-body { padding: 2.25rem; display: flex; flex-direction: column; justify-content: center; }
+  .destacada-body h3 { font-family: 'Playfair Display', serif; font-size: clamp(1.4rem, 3vw, 1.9rem); line-height: 1.25; margin: 0.25rem 0 0.75rem; }
+  .destacada-body p { color: var(--gris); line-height: 1.7; margin-bottom: 1.5rem; }
+  .destacada-body .btn-primary { align-self: flex-start; }
+  .nav-links a[aria-current="page"] { color: var(--verde); font-weight: 600; }
+  footer .footer-links a { margin: 0 0.4rem; }
+
   @media (max-width: 640px) {
-    .nav-links { display: none; }
+    nav { height: auto; min-height: 56px; padding: 0.5rem 1rem; flex-wrap: wrap; gap: 0.25rem 1rem; }
+    .logo { font-size: 1.15rem; }
+    .nav-links { gap: 1rem; flex-wrap: wrap; }
+    .nav-links a { font-size: 0.82rem; }
+    .nav-links .solo-desktop { display: none; }
+    .hero { padding-top: 110px; }
     .hero-stats { gap: 1.5rem; flex-wrap: wrap; }
+    .destacada { padding: 2.5rem 1rem 0; }
+    .destacada-card { grid-template-columns: 1fr; }
+    .destacada-thumb { min-height: 160px; font-size: 4.5rem; }
+    .destacada-body { padding: 1.5rem; }
   }
 </style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9352377879934787"
@@ -131,10 +151,12 @@
 <body>
 
 <nav>
-  <a class="logo" href="#">Tu<span>Guia</span>Local</a>
+  <a class="logo" href="/">Tu<span>Guia</span>Local</a>
   <ul class="nav-links">
+    <li class="solo-desktop"><a href="/" aria-current="page">Inicio</a></li>
     <li><a href="#articulos">Reseñas</a></li>
-    <li><a href="#zonas">Otras zonas</a></li>
+    <li><a href="acerca-de.html">Quién soy</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
   </ul>
 </nav>
 
@@ -159,6 +181,22 @@
         <div class="stat-label">Creciendo cada mes</div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ÚLTIMA RESEÑA -->
+<section class="destacada" id="ultima">
+  <div class="container">
+    <div class="section-label">🆕 Última reseña</div>
+    <a href="el-brasero.html" class="destacada-card">
+      <div class="destacada-thumb" style="background: linear-gradient(135deg, #FFE4D6, #FFCBA4);">🔥</div>
+      <div class="destacada-body">
+        <span class="post-tag">Parrilla y rotisería · Bahía Blanca</span>
+        <h3>El Brasero: porciones generosas, buen precio, para darse un gusto sin cocinar</h3>
+        <p>Carne y pollo de calidad, combos abundantes y atención rápida. Hacen delivery.</p>
+        <span class="btn-primary">Leer reseña</span>
+      </div>
+    </a>
   </div>
 </section>
 
@@ -376,10 +414,10 @@
 </section>
 
 <footer>
-  <a class="logo" href="#">Tu<span style="color:var(--verde-claro)">Guia</span>Local</a>
+  <a class="logo" href="/">Tu<span style="color:var(--verde-claro)">Guia</span>Local</a>
   <p>Recomendaciones honestas de lugares, productos y planes.<br>
   Hecho con ❤️ desde Bahía Blanca, Argentina.<br><br>
-  <a href="#">Contacto</a> · <a href="#">Instagram</a></p>
+  <span class="footer-links"><a href="acerca-de.html">Quién soy</a> · <a href="contacto.html">Contacto</a> · <a href="https://instagram.com/tuguialocal.ar" rel="noopener">Instagram</a></span></p>
 </footer>
 
 </body>

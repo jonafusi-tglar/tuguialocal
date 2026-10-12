@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quién soy y por qué hice TuGuiaLocal | TuGuiaLocal</title>
+<meta name="description" content="TuGuiaLocal es una guía independiente de reseñas de negocios de Bahía Blanca, basada en experiencias reales.">
+<link rel="canonical" href="https://tuguialocal.ar/acerca-de.html">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --verde: #2D6A4F;
+    --verde-claro: #52B788;
+    --arena: #F7F3EE;
+    --tierra: #C17F3A;
+    --oscuro: #1A1A1A;
+    --gris: #6B6B6B;
+    --blanco: #FFFFFF;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: var(--arena); color: var(--oscuro); }
+
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    background: rgba(247,243,238,0.95); backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(45,106,79,0.1);
+    padding: 0 2rem; display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+  }
+  .logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--verde); text-decoration: none; }
+  .logo span { color: var(--tierra); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { text-decoration: none; color: var(--oscuro); font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--verde); }
+
+  
+  footer { background: var(--oscuro); color: rgba(255,255,255,0.6); padding: 3rem 2rem; text-align: center; }
+  footer .logo { display: inline-block; margin-bottom: 1rem; color: white; }
+  footer p { font-size: 0.85rem; line-height: 1.7; }
+  footer a { color: var(--verde-claro); text-decoration: none; }
+
+  .nav-links a[aria-current="page"] { color: var(--verde); font-weight: 600; }
+  .page { max-width: 720px; margin: 0 auto; padding: 110px 1.5rem 4rem; }
+  .page h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3rem); line-height: 1.15; margin-bottom: 1.5rem; }
+  .page h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin: 2.5rem 0 0.6rem; color: var(--verde); }
+  .page p { font-size: 1.05rem; line-height: 1.8; margin-bottom: 1rem; }
+  .page a { color: var(--verde); font-weight: 500; }
+  .contact-card { background: white; border: 1px solid rgba(0,0,0,0.06); border-radius: 16px; padding: 1.5rem; margin-bottom: 1rem; }
+  .contact-card h2 { margin-top: 0; }
+  .contact-card p { margin-bottom: 0; }
+  a:focus-visible { outline: 3px solid var(--verde-claro); outline-offset: 2px; }
+  footer .footer-links a { margin: 0 0.4rem; }
+  @media (max-width: 640px) {
+    nav { height: auto; min-height: 56px; padding: 0.5rem 1rem; flex-wrap: wrap; gap: 0.25rem 1rem; }
+    .logo { font-size: 1.15rem; }
+    .nav-links { gap: 1rem; flex-wrap: wrap; }
+    .nav-links a { font-size: 0.82rem; }
+    .nav-links .solo-desktop { display: none; }
+    .page { padding-top: 100px; }
+  }
+</style>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9352377879934787"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="/">Tu<span>Guia</span>Local</a>
+  <ul class="nav-links">
+    <li class="solo-desktop"><a href="/">Inicio</a></li>
+    <li><a href="/#articulos">Reseñas</a></li>
+    <li><a href="acerca-de.html" aria-current="page">Quién soy</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
+  </ul>
+</nav>
+
+<main class="page">
+  <h1>Quién soy y por qué hice TuGuiaLocal</h1>
+
+  <p>Vivo en Bahía Blanca hace mas de 3 años. TuGuiaLocal es una guía independiente de reseñas de negocios de Bahía Blanca principalmente, y alrededores ocasionalmente. También de otras ciudades como La Plata, mi ciudad natal.</p>
+
+  <h2>Por qué hice este sitio</h2>
+  <p>Por razones de salud, tuve una mala experiencia con un profesional al ir de urgencia a una guardia. A raíz de eso, mi psicóloga me recomendó ir a lugares que me indicara gente de confianza, guiarme más por el boca en boca que por el azar.</p>
+  <p>Por eso se me ocurrió crear un espacio para las personas que, como yo, son nuevas en Bahía Blanca, y que tengan una referencia honesta basada en mis experiencias al ir conociendo la ciudad, según mis necesidades cotidianas y de rutina.</p>
+  <p>Armé el sitio desde cero, sin experiencia previa en desarrollo web, y lo voy mejorando de a poco. Las reseñas actuales son una base de lo que fui transitando hasta ahora en cuanto a locales. Voy a ir mejorando las existentes, y las nuevas van a tener más elementos: fotos propias del lugar, relatos del momento y ejemplos de reseñas de otras personas en otras plataformas.</p>
+
+  <h2>Cómo hago las reseñas</h2>
+  <p>Me baso en la experiencia vivida en el lugar. En general hago una reseña cuando fui varias veces, o cuando además de mí, personas de mi entorno coinciden en la buena experiencia y la calidad. Recién ahí decido ponerlo en este espacio, para que ustedes también puedan aprovecharlo con una referencia confiable.</p>
+  <p>Si un dato cambió o encontrás un error, escribime y lo corrijo.</p>
+
+  <h2>Contacto</h2>
+  <p>Escribime por mail a <a href="mailto:tuguialocal.ar@gmail.com">tuguialocal.ar@gmail.com</a> para sugerir un lugar, corregir un dato o contar tu experiencia.</p>
+  <p>También podés contactarme y enterarte de las novedades del sitio en Instagram: <a href="https://instagram.com/tuguialocal.ar" rel="noopener">@tuguialocal.ar</a>.</p>
+</main>
+
+<footer>
+  <a class="logo" href="/">Tu<span style="color:var(--verde-claro)">Guia</span>Local</a>
+  <p>Recomendaciones honestas de lugares, productos y planes.<br>
+  Hecho con ❤️ desde Bahía Blanca, Argentina.<br><br>
+  <span class="footer-links"><a href="acerca-de.html">Quién soy</a> · <a href="contacto.html">Contacto</a> · <a href="https://instagram.com/tuguialocal.ar" rel="noopener">Instagram</a></span></p>
+</footer>
+
+</body>
+</html>

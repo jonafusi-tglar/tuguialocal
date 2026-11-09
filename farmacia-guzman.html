@@ -25,7 +25,7 @@
   }
   .logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--verde); text-decoration: none; }
   .logo span { color: var(--tierra); }
-  .nav-back { font-size: 0.9rem; color: var(--gris); text-decoration: none; display: flex; align-items: center; gap: 0.4rem; }
+  .nav-back { font-size: 0.9rem; color: var(--gris); text-decoration: none; }
   .nav-back:hover { color: var(--verde); }
   .hero-article { padding: 100px 2rem 3rem; max-width: 780px; margin: 0 auto; }
   .article-tag {
@@ -50,7 +50,6 @@
   .article-body h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; margin: 2.5rem 0 1rem; color: var(--oscuro); }
   .highlight-box { background: var(--verde); color: white; border-radius: 12px; padding: 1.5rem 2rem; margin: 2rem 0; font-size: 1.05rem; line-height: 1.7; }
   .highlight-box strong { display: block; font-size: 1.2rem; margin-bottom: 0.4rem; }
-  .quote-box { background: rgba(45,106,79,0.06); border-left: 4px solid var(--verde-claro); border-radius: 0 12px 12px 0; padding: 1.25rem 1.5rem; margin: 2rem 0; font-size: 1.05rem; font-style: italic; color: #333; line-height: 1.7; }
   .pro-contra { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 2rem 0; }
   .pro, .contra { border-radius: 12px; padding: 1.25rem; }
   .pro { background: rgba(82,183,136,0.1); border: 1px solid rgba(82,183,136,0.3); }
@@ -65,6 +64,13 @@
   .info-practica h3 { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--tierra); margin-bottom: 1rem; }
   .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.75rem; }
   .info-item { font-size: 0.9rem; color: #333; display: flex; gap: 0.5rem; }
+  .hero-img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 16px; display: block; margin-bottom: 1.8rem; box-shadow: 0 6px 24px rgba(0,0,0,0.12); }
+  .links-finales { display: flex; gap: 0.8rem; flex-wrap: wrap; margin: 2rem 0 1rem; }
+  .btn-link { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.3rem; border-radius: 100px; font-size: 0.92rem; font-weight: 600; text-decoration: none; }
+  .btn-maps { background: var(--verde); color: white; }
+  .btn-ig { background: white; color: var(--verde); border: 1.5px solid var(--verde); }
+  .btn-link:hover { opacity: 0.85; }
+  .cita { border-left: 4px solid var(--tierra); background: white; border-radius: 0 12px 12px 0; padding: 1.2rem 1.5rem; margin: 2rem 0; font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.15rem; line-height: 1.7; color: #333; }
   @media (max-width: 600px) { .pro-contra { grid-template-columns: 1fr; } .hero-article { padding: 90px 1.2rem 2rem; } }
 </style>
 </head>
@@ -76,6 +82,8 @@
 </nav>
 
 <article class="hero-article">
+
+  <img class="hero-img" src="guzman-encabezado.jpg" alt="Fachada de Farmacia Guzmán en Av. Alem 1067, Bahía Blanca">
 
   <div class="article-tag">💊 Farmacia · Bahía Blanca</div>
 
@@ -94,26 +102,10 @@
   <div class="veredicto">
     <h3>⚡ Veredicto rápido</h3>
     <div class="v-grid">
-      <div class="v-item">
-        <span class="v-emoji">🤝</span>
-        <div class="v-value">Excepcional</div>
-        <div class="v-label">Atención</div>
-      </div>
-      <div class="v-item">
-        <span class="v-emoji">❤️</span>
-        <div class="v-value">Única</div>
-        <div class="v-label">Calidez humana</div>
-      </div>
-      <div class="v-item">
-        <span class="v-emoji">⭐</span>
-        <div class="v-value">4.8 / 5</div>
-        <div class="v-label">Calificación</div>
-      </div>
-      <div class="v-item">
-        <span class="v-emoji">🛵</span>
-        <div class="v-value">Disponible</div>
-        <div class="v-label">Delivery</div>
-      </div>
+      <div class="v-item"><span class="v-emoji">🤝</span><div class="v-value">Excepcional</div><div class="v-label">Atención</div></div>
+      <div class="v-item"><span class="v-emoji">❤️</span><div class="v-value">Única</div><div class="v-label">Calidez humana</div></div>
+      <div class="v-item"><span class="v-emoji">⭐</span><div class="v-value">4.8 / 5</div><div class="v-label">Calificación</div></div>
+      <div class="v-item"><span class="v-emoji">🛵</span><div class="v-value">Disponible</div><div class="v-label">Delivery</div></div>
     </div>
   </div>
 
@@ -125,9 +117,7 @@
 
     <p>La farmacia la llevan adelante una chica y su hermano. Dos personas que eligieron no solo dispensar medicamentos sino acompañar genuinamente a cada persona que entra por esa puerta. Eso no es algo que se aprenda en ningún curso — es una forma de ser, y se nota desde el primer intercambio.</p>
 
-    <div class="quote-box">
-      "Ir a esta farmacia no es solo ir a conseguir la medicación para un problema de salud. Es ir a un lugar donde da placer transitar la dificultad que uno está pasando."
-    </div>
+    <div class="cita">"Ir a esta farmacia no es solo ir a conseguir la medicación para un problema de salud. Es ir a un lugar donde da placer transitar la dificultad que uno está pasando."</div>
 
     <p>Te sentís una persona, no un número. Se toman el tiempo para conocerte, para entender tu situación, para guiarte. Y siempre con el mismo cierre: deseándote buena salud. No como una fórmula vacía — como algo que realmente sienten.</p>
 
@@ -183,6 +173,11 @@
     </div>
 
     <p>Ojalá no tengas que ir seguido. Pero si tenés que ir, sabé que en Farmacia Guzmán vas a estar en buenas manos — y que vas a salir sintiéndote un poco mejor, con o sin los remedios.</p>
+
+    <div class="links-finales">
+      <a class="btn-link btn-maps" href="https://www.google.com/maps/search/?api=1&query=Av.+Alem+1067+Bah%C3%ADa+Blanca" target="_blank" rel="noopener">📍 Cómo llegar (Google Maps)</a>
+      <a class="btn-link btn-ig" href="https://www.instagram.com/tuguialocal.ar/" target="_blank" rel="noopener">📸 Seguinos en Instagram @tuguialocal.ar</a>
+    </div>
 
   </div>
 

@@ -64,6 +64,12 @@
   .info-practica h3 { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--tierra); margin-bottom: 1rem; }
   .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.75rem; }
   .info-item { font-size: 0.9rem; color: #333; display: flex; gap: 0.5rem; }
+  .hero-img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 16px; display: block; margin-bottom: 1.8rem; box-shadow: 0 6px 24px rgba(0,0,0,0.12); }
+  .links-finales { display: flex; gap: 0.8rem; flex-wrap: wrap; margin: 2rem 0 1rem; }
+  .btn-link { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.3rem; border-radius: 100px; font-size: 0.92rem; font-weight: 600; text-decoration: none; }
+  .btn-maps { background: var(--verde); color: white; }
+  .btn-ig { background: white; color: var(--verde); border: 1.5px solid var(--verde); }
+  .btn-link:hover { opacity: 0.85; }
   @media (max-width: 600px) { .pro-contra { grid-template-columns: 1fr; } .hero-article { padding: 90px 1.2rem 2rem; } }
 </style>
 </head>
@@ -75,6 +81,8 @@
 </nav>
 
 <article class="hero-article">
+
+  <img class="hero-img" src="pieres-encabezado.jpg" alt="Fachada de Pieres Electricidad en O'Higgins 242, Bahía Blanca">
 
   <div class="article-tag">⚡ Electricidad · Bahía Blanca</div>
 
@@ -166,6 +174,11 @@
         <div class="info-item"><span>💵</span><span>Descuento en efectivo</span></div>
         <div class="info-item"><span>📱</span><span>@pieres_electricidad</span></div>
       </div>
+    </div>
+
+    <div class="links-finales">
+      <a class="btn-link btn-maps" href="https://www.google.com/maps/search/?api=1&query=O%27Higgins+242+Bah%C3%ADa+Blanca" target="_blank" rel="noopener">📍 Cómo llegar (Google Maps)</a>
+      <a class="btn-link btn-ig" href="https://www.instagram.com/tuguialocal.ar/" target="_blank" rel="noopener">📸 Seguinos en Instagram @tuguialocal.ar</a>
     </div>
 
   </div>

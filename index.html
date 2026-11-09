@@ -92,6 +92,8 @@
   .post-card.proximamente { opacity: 0.5; cursor: default; }
   .post-card.proximamente:hover { transform: none; box-shadow: none; }
   .post-thumb { height: 200px; display: flex; align-items: center; justify-content: center; font-size: 4rem; }
+  .post-thumb { overflow: hidden; }
+  .post-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .post-thumb.bar { background: linear-gradient(135deg, #FEF3C7, #FDE68A); }
   .post-thumb.optica { background: linear-gradient(135deg, #DBEAFE, #BFDBFE); }
   .post-thumb.pronto { background: linear-gradient(135deg, #F3F4F6, #E5E7EB); }
@@ -279,7 +281,7 @@
       </a>
 
       <a href="pieres-electricidad.html" class="post-card">
-        <div class="post-thumb" style="background: linear-gradient(135deg, #FFF9C4, #FFF176);">⚡</div>
+        <div class="post-thumb"><img src="pieres-portada.jpg" alt="Fachada de Pieres Electricidad, Bahía Blanca" loading="lazy"></div>
         <div class="post-body">
           <span class="post-tag">Electricidad · Bahía Blanca</span>
           <h3>Pieres Electricidad: antes de dar vueltas, primero andá acá</h3>

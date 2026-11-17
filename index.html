@@ -128,6 +128,8 @@
   .destacada-card { display: grid; grid-template-columns: 1fr 1.3fr; background: white; border-radius: 16px; overflow: hidden; text-decoration: none; color: inherit; border: 1px solid rgba(0,0,0,0.06); transition: transform 0.2s, box-shadow 0.2s; }
   .destacada-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.1); }
   .destacada-thumb { display: flex; align-items: center; justify-content: center; font-size: 6rem; min-height: 260px; }
+  .destacada-thumb.foto { display: block; font-size: inherit; min-height: 0; aspect-ratio: 3 / 2; }
+  .destacada-thumb.foto img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .destacada-body { padding: 2.25rem; display: flex; flex-direction: column; justify-content: center; }
   .destacada-body h3 { font-family: 'Playfair Display', serif; font-size: clamp(1.4rem, 3vw, 1.9rem); line-height: 1.25; margin: 0.25rem 0 0.75rem; }
   .destacada-body p { color: var(--gris); line-height: 1.7; margin-bottom: 1.5rem; }
@@ -192,12 +194,12 @@
 <section class="destacada" id="ultima">
   <div class="container">
     <div class="section-label">🆕 Última reseña</div>
-    <a href="el-brasero.html" class="destacada-card">
-      <div class="destacada-thumb" style="background: linear-gradient(135deg, #FFE4D6, #FFCBA4);">🔥</div>
+    <a href="taller-ercolani.html" class="destacada-card">
+      <div class="destacada-thumb foto"><img src="ercolani-portada.jpg" alt="Taller de Chapa y Pintura Ercolani, Bahía Blanca"></div>
       <div class="destacada-body">
-        <span class="post-tag">Parrilla y rotisería · Bahía Blanca</span>
-        <h3>El Brasero: porciones generosas, buen precio, para darse un gusto sin cocinar</h3>
-        <p>Carne y pollo de calidad, combos abundantes y atención rápida. Hacen delivery.</p>
+        <span class="post-tag">Chapa y pintura · Bahía Blanca</span>
+        <h3>Taller Ercolani: después de un siniestro, un taller que cumple lo que promete</h3>
+        <p>Respuesta inmediata por WhatsApp, presupuesto el mismo día y el auto listo en el plazo prometido.</p>
         <span class="btn-primary">Leer reseña</span>
       </div>
     </a>
@@ -359,6 +361,16 @@
           <h3>El Brasero: porciones generosas, buen precio, para darse un gusto sin cocinar</h3>
           <p>Carne y pollo de calidad, combos abundantes y atención rápida. Hacen delivery.</p>
           <div class="post-meta"><span>📍 Bahía Blanca</span><span>3 min de lectura</span></div>
+        </div>
+      </a>
+
+      <a href="taller-ercolani.html" class="post-card">
+        <div class="post-thumb foto"><img src="ercolani-portada.jpg" alt="Taller de Chapa y Pintura Ercolani, Bahía Blanca" loading="lazy"></div>
+        <div class="post-body">
+          <span class="post-tag">Chapa y pintura · Bahía Blanca</span>
+          <h3>Taller Ercolani: después de un siniestro, un taller que cumple lo que promete</h3>
+          <p>Respuesta inmediata por WhatsApp, presupuesto el mismo día y el auto listo en el plazo prometido.</p>
+          <div class="post-meta"><span>📍 Bahía Blanca</span><span>4 min de lectura</span></div>
         </div>
       </a>
 

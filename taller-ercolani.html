@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Taller Ercolani, Bahía Blanca - TuGuiaLocal</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --verde: #2D6A4F;
+    --verde-claro: #52B788;
+    --arena: #F7F3EE;
+    --tierra: #C17F3A;
+    --oscuro: #1A1A1A;
+    --gris: #6B6B6B;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: var(--arena); color: var(--oscuro); }
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    background: rgba(247,243,238,0.95); backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(45,106,79,0.1);
+    padding: 0 2rem; display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+  }
+  .logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--verde); text-decoration: none; }
+  .logo span { color: var(--tierra); }
+  .nav-back { font-size: 0.9rem; color: var(--gris); text-decoration: none; }
+  .nav-back:hover { color: var(--verde); }
+  .hero-article { padding: 100px 2rem 3rem; max-width: 780px; margin: 0 auto; }
+  .article-tag {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    background: rgba(45,106,79,0.1); border-radius: 100px;
+    padding: 0.3rem 0.9rem; margin-bottom: 1.2rem;
+    font-size: 0.78rem; font-weight: 600; color: var(--verde);
+    letter-spacing: 0.05em; text-transform: uppercase;
+  }
+  h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 900; line-height: 1.15; margin-bottom: 1rem; }
+  .article-subtitle { font-size: 1.15rem; color: var(--gris); line-height: 1.7; margin-bottom: 2rem; border-left: 3px solid var(--verde-claro); padding-left: 1rem; }
+  .article-meta { display: flex; gap: 1.5rem; flex-wrap: wrap; font-size: 0.83rem; color: var(--gris); padding-bottom: 2rem; border-bottom: 1px solid rgba(0,0,0,0.08); margin-bottom: 2.5rem; }
+  .veredicto { background: white; border-radius: 16px; padding: 1.5rem 2rem; margin-bottom: 2.5rem; border: 1px solid rgba(0,0,0,0.06); }
+  .veredicto h3 { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--tierra); margin-bottom: 1rem; }
+  .v-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 1rem; }
+  .v-item { text-align: center; }
+  .v-emoji { font-size: 1.8rem; display: block; margin-bottom: 0.3rem; }
+  .v-label { font-size: 0.78rem; color: var(--gris); }
+  .v-value { font-size: 0.9rem; font-weight: 600; color: var(--oscuro); }
+  .article-body { line-height: 1.85; font-size: 1.05rem; }
+  .article-body p { margin-bottom: 1.5rem; color: #2a2a2a; }
+  .article-body h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; margin: 2.5rem 0 1rem; color: var(--oscuro); }
+  .highlight-box { background: var(--verde); color: white; border-radius: 12px; padding: 1.5rem 2rem; margin: 2rem 0; font-size: 1.05rem; line-height: 1.7; }
+  .highlight-box strong { display: block; font-size: 1.2rem; margin-bottom: 0.4rem; }
+  .pro-contra { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 2rem 0; }
+  .pro, .contra { border-radius: 12px; padding: 1.25rem; }
+  .pro { background: rgba(82,183,136,0.1); border: 1px solid rgba(82,183,136,0.3); }
+  .contra { background: rgba(193,127,58,0.08); border: 1px solid rgba(193,127,58,0.25); }
+  .pro h4 { color: var(--verde); font-size: 0.85rem; font-weight: 700; margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .contra h4 { color: var(--tierra); font-size: 0.85rem; font-weight: 700; margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .pro ul, .contra ul { list-style: none; }
+  .pro li, .contra li { font-size: 0.9rem; padding: 0.3rem 0; color: #333; }
+  .pro li::before { content: "✓ "; color: var(--verde); font-weight: 700; }
+  .contra li::before { content: "→ "; color: var(--tierra); font-weight: 700; }
+  .info-practica { background: white; border-radius: 16px; padding: 1.5rem 2rem; margin: 2rem 0; border: 1px solid rgba(0,0,0,0.06); }
+  .info-practica h3 { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--tierra); margin-bottom: 1rem; }
+  .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.75rem; }
+  .info-item { font-size: 0.9rem; color: #333; display: flex; gap: 0.5rem; }
+  .hero-img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 16px; display: block; margin-bottom: 1.8rem; box-shadow: 0 6px 24px rgba(0,0,0,0.12); }
+  .links-finales { display: flex; gap: 0.8rem; flex-wrap: wrap; margin: 2rem 0 1rem; }
+  .btn-link { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.3rem; border-radius: 100px; font-size: 0.92rem; font-weight: 600; text-decoration: none; }
+  .btn-maps { background: var(--verde); color: white; }
+  .btn-ig { background: white; color: var(--verde); border: 1.5px solid var(--verde); }
+  .btn-link:hover { opacity: 0.85; }
+  .cita { border-left: 4px solid var(--tierra); background: white; border-radius: 0 12px 12px 0; padding: 1.2rem 1.5rem; margin: 2rem 0; font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.15rem; line-height: 1.7; color: #333; }
+  @media (max-width: 600px) { .pro-contra { grid-template-columns: 1fr; } .hero-article { padding: 90px 1.2rem 2rem; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="index.html">Tu<span>Guia</span>Local</a>
+  <a class="nav-back" href="index.html">← Volver al inicio</a>
+</nav>
+
+<article class="hero-article">
+
+  <img class="hero-img" src="ercolani-encabezado.jpg" alt="Taller de Chapa y Pintura Ercolani en Güemes 1574, Bahía Blanca">
+
+  <div class="article-tag">🔧 Chapa y pintura · Bahía Blanca</div>
+
+  <h1>Taller Ercolani: después de un siniestro, un taller que cumple lo que promete</h1>
+
+  <p class="article-subtitle">
+    Un primer taller que nunca respondió, y otro que contestó al instante, presupuestó el mismo día y entregó el auto cuando dijo.
+  </p>
+
+  <div class="article-meta">
+    <span>📍 Güemes 1574, Bahía Blanca</span>
+    <span>⏱ 4 min de lectura</span>
+    <span>✍️ Reseña personal</span>
+  </div>
+
+  <div class="veredicto">
+    <h3>⚡ Veredicto rápido</h3>
+    <div class="v-grid">
+      <div class="v-item"><span class="v-emoji">💬</span><div class="v-value">Inmediata</div><div class="v-label">Respuesta por WhatsApp</div></div>
+      <div class="v-item"><span class="v-emoji">📄</span><div class="v-value">El mismo día</div><div class="v-label">Presupuesto</div></div>
+      <div class="v-item"><span class="v-emoji">📅</span><div class="v-value">Cumplidos</div><div class="v-label">Plazos de entrega</div></div>
+      <div class="v-item"><span class="v-emoji">🎨</span><div class="v-value">Prolijo</div><div class="v-label">Trabajo</div></div>
+    </div>
+  </div>
+
+  <div class="article-body">
+
+    <p>Cuando sufrimos un siniestro con nuestro auto, enseguida se nos viene a la cabeza esa nube gris: ¿a qué taller lo vamos a llevar?, ¿quién será el que nos cobre de más?, ¿qué tan confiable puede ser? Siempre está ese miedo, y también el prejuicio, de que los mecánicos o los encargados de chapa y pintura de nuestros vehículos puedan aprovecharse de nuestra desgracia para obtener un beneficio económico. Y es que, lamentablemente, es una preocupación bastante común.</p>
+
+    <p>Por desgracia, este año sufrí mi primer siniestro con el auto y lo viví bastante mal. Fue un episodio de mala suerte, provocado por un descuido del otro conductor. Por suerte, nadie salió lastimado; solo hubo rayones y daños en algunas partes de ambos vehículos. Nada que no pudiera arreglarse, pero sí algo que iba a costar dinero.</p>
+
+    <p>Obviamente, en primera instancia realicé la denuncia en mi aseguradora y comencé a conocer los procedimientos y los pasos que debía seguir. Conseguir el taller era responsabilidad mía, así que empecé a consultar a conocidos para encontrar alguna referencia de confianza.</p>
+
+    <p>El primer taller al que acudí no me dio resultado. Empecé a experimentar justamente eso que tanto tememos: demoras en las respuestas, falta de comunicación e incluso mensajes sin contestar para coordinar una cita y evaluar las reparaciones. Hasta hubo un presupuesto prometido que nunca llegó.</p>
+
+    <p>En fin, sin quedarme de brazos cruzados, seguí consultando a mis conocidos para tener más opciones, y así fue como llegué a este taller.</p>
+
+    <p>Enseguida escribí al WhatsApp que figuraba en Google Maps y obtuve una respuesta inmediata. Les comenté mi situación, les informé con qué seguro trabajaba y rápidamente coordinamos una cita para una mañana, para que pudieran ver el vehículo y evaluar su estado.</p>
+
+    <p>Ese mismo día, después del mediodía, ya tenía el presupuesto para presentar ante la aseguradora y continuar con el trámite. Presenté toda la documentación a través de la página web de mi seguro y, una vez aprobado el trámite, desde el taller se comunicaron conmigo para coordinar la fecha en la que debía dejar el auto.</p>
+
+    <p>Me explicaron que el vehículo se entrega un lunes y que, para el viernes de esa misma semana, se estima que estaría listo. Contento con ese plazo, acepté, coordinamos y cerramos la fecha.</p>
+
+    <p>En mi caso, tuve que abonar una franquicia por los repuestos que necesitaba el vehículo, y este es un detalle importante para tener en cuenta. Particularmente, no podía pagar en efectivo la totalidad del importe, y el Taller Ercolani solo acepta efectivo o transferencia. Por suerte, pude resolver esa cuestión directamente con mi aseguradora, que sí me ofreció la posibilidad de financiar el gasto, por lo que no tuve inconvenientes para avanzar.</p>
+
+    <p>La recomendación del taller me había llegado a través del hermano de un amigo, quien me contó que hacía años había llevado su vehículo allí y que había tenido una excelente experiencia, destacando especialmente la calidad del trabajo.</p>
+
+    <p>Por suerte, pude comprobarlo por mí mismo y vivir una experiencia igual de satisfactoria, tanto por la calidad del trabajo como por la atención recibida.</p>
+
+    <p>Dejé mi auto un lunes, tal como me habían indicado, y el viernes por la tarde ya estaba listo para retirarlo. Fue muy satisfactorio comprobar que un comercio cumple con los tiempos que promete. Todos sabemos que siempre puede aparecer alguna excusa o circunstancia que termine demorando una entrega, pero no fue este el caso.</p>
+
+    <p>Fui muy contento a buscar mi auto y lo encontré renovado, prácticamente como nuevo. Un trabajo realmente prolijo y espectacular, tanto en la pintura como en el reemplazo de los repuestos.</p>
+
+    <p>El personal del lugar fue muy amable en todo momento: desde la comunicación por WhatsApp para coordinar los aspectos administrativos, hasta la atención presencial en el taller, tanto al momento de la entrega como al retirar el vehículo.</p>
+
+    <p>Gracias a Ercolani, todos esos miedos y fastidios que imaginaba que iba a tener al llevar mi auto por primera vez a un taller después de un siniestro no se hicieron realidad.</p>
+
+    <p>Más allá de la desgracia de haber sufrido el accidente, tuve una experiencia posterior satisfactoria y, sobre todo, tranquilizadora.</p>
+
+    <p>Y, aprovechando este espacio, quiero acercarles lugares y recomendaciones honestas, basadas en experiencias reales. Por eso les comparto mi experiencia, para que también puedan aprovecharla.</p>
+
+    <p>Si no tienen un amigo que sepa recomendarles lugares de confianza, me tienen a mí, o mejor dicho, tienen a TuGuiaLocal, para consultar, descubrir y saber adónde ir, sin tantos miedos ni estrés en Bahía Blanca.</p>
+
+    <p>¡ah!, a todo esto, todavía sigo esperando el presupuesto del primer taller, que nunca más volvió a comunicarse conmigo. Pero como esta es una página de buenas experiencias y buenas recomendaciones, ese tema lo dejamos para otro momento.</p>
+
+    <p>¡Gracias, Ercolani! Gracias a ustedes, puedo seguir esperando aquel presupuesto tranquilamente, con mi auto ya arreglado. 😂</p>
+
+    <div class="pro-contra">
+      <div class="pro">
+        <h4>👍 Lo mejor</h4>
+        <ul>
+          <li>Respuesta inmediata por WhatsApp</li>
+          <li>Presupuesto listo el mismo día para presentar al seguro</li>
+          <li>Cumplieron el plazo prometido (lunes a viernes)</li>
+          <li>Trabajo prolijo, el auto quedó como nuevo</li>
+          <li>Personal amable en todo momento</li>
+        </ul>
+      </div>
+      <div class="contra">
+        <h4>⚠️ A tener en cuenta</h4>
+        <ul>
+          <li>Solo aceptan efectivo o transferencia</li>
+          <li>Con seguro, hay que abonar la franquicia por los repuestos</li>
+          <li>Se coordina una cita previa para evaluar el vehículo</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="info-practica">
+      <h3>📋 Información práctica</h3>
+      <div class="info-grid">
+        <div class="info-item"><span>📍</span><span>Güemes 1574, Bahía Blanca</span></div>
+        <div class="info-item"><span>💬</span><span>WhatsApp: 291 429-2365</span></div>
+        <div class="info-item"><span>🕘</span><span>Lun a Vie, aprox. 8-12 y 13-17 (consultar)</span></div>
+        <div class="info-item"><span>💳</span><span>Efectivo o transferencia</span></div>
+        <div class="info-item"><span>🔧</span><span>Taller de chapa y pintura</span></div>
+        <div class="info-item"><span>📱</span><span>@tallerercolani</span></div>
+      </div>
+    </div>
+
+    <div class="links-finales">
+      <a class="btn-link btn-maps" href="https://www.google.com/maps/place/Taller+de+Chapa+y+Pintura+de+Ercolani/@-38.707297,-62.2902118,17z/data=!3m1!4b1!4m6!3m5!1s0x95edbb676a979fad:0x5a1d9edd8d9699da!8m2!3d-38.707297!4d-62.2876369!16s%2Fg%2F1tg3c8_d?entry=ttu&amp;g_ep=EgoyMDI2MTExNS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">📍 Cómo llegar (Google Maps)</a>
+      <a class="btn-link btn-ig" href="https://www.instagram.com/tuguialocal.ar/" target="_blank" rel="noopener">📸 Seguinos en Instagram @tuguialocal.ar</a>
+    </div>
+
+  </div>
+
+</article>
+
+</body>
+</html>

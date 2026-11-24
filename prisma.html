@@ -72,6 +72,22 @@
   .btn-link:hover { opacity: 0.85; }
   .cita { border-left: 4px solid var(--tierra); background: white; border-radius: 0 12px 12px 0; padding: 1.2rem 1.5rem; margin: 2rem 0; font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.15rem; line-height: 1.7; color: #333; }
   @media (max-width: 600px) { .pro-contra { grid-template-columns: 1fr; } .hero-article { padding: 90px 1.2rem 2rem; } }
+  .nv-bloque { background: #fff; border: 1px solid rgba(0,0,0,0.06); border-left: 5px solid var(--tierra, #C17F3A); border-radius: 16px; padding: 2rem 2.25rem; margin: 2.5rem 0; display: flow-root; }
+  .nv-label { display: inline-block; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--tierra, #C17F3A); margin-bottom: 0.5rem; }
+  .nv-bloque h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem, 3.5vw, 2rem); line-height: 1.25; margin: 0 0 1.25rem; color: var(--oscuro, #1A1A1A); }
+  .nv-bloque p { line-height: 1.8; margin-bottom: 1.1rem; color: var(--oscuro, #1A1A1A); }
+  .nv-bloque figure { margin: 0.25rem 0 0.75rem; width: 46%; max-width: 360px; }
+  .nv-bloque figure img { width: 100%; height: auto; display: block; border-radius: 12px; }
+  .nv-bloque figcaption { font-size: 0.78rem; color: var(--gris, #6B6B6B); margin-top: 0.4rem; line-height: 1.4; }
+  .nv-der { float: right; margin-left: 1.5rem; }
+  .nv-izq { float: left; margin-right: 1.5rem; max-width: 230px; width: 38%; }
+  @media (max-width: 640px) {
+    .nv-bloque { padding: 1.5rem 1.25rem; }
+    .nv-bloque figure, .nv-izq { float: none; width: 100%; max-width: 100%; margin: 0.5rem 0 1rem; }
+    .nv-izq { max-width: 260px; margin-left: auto; margin-right: auto; }
+  }
+  .nv-separador { display: flex; align-items: center; gap: 1rem; margin: 2.5rem 0 1.5rem; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gris, #6B6B6B); }
+  .nv-separador::before, .nv-separador::after { content: ""; flex: 1; height: 1px; background: rgba(0,0,0,0.12); }
 </style>
 </head>
 <body>
@@ -95,9 +111,38 @@
 
   <div class="article-meta">
     <span>📍 Bartolomé Mitre 418, Bahía Blanca</span>
-    <span>⏱ 4 min de lectura</span>
+    <span>⏱ 5 min de lectura</span>
     <span>✍️ Reseña personal</span>
   </div>
+
+  <section class="nv-bloque">
+    <span class="nv-label">🆕 Nueva visita · Noviembre 2026</span>
+    <h2>Prisma – Una nueva visita</h2>
+  
+    <figure class="nv-der">
+      <img src="prisma-nueva-visita-patio.jpg" alt="Patio de Cervecería Prisma de noche, con luces de colores, árboles y mesas altas" loading="lazy">
+      <figcaption>El patio de noche, con sus árboles, plantas y luces.</figcaption>
+    </figure>
+  
+    <p>Este fin de semana tuve la posibilidad de volver a Prisma para disfrutar de un buen rato con dos amigos. Llegamos alrededor de las 20:30 hs y nos acomodamos en el patio, que es tan agradable y está tan bien ambientado, con sus árboles, plantas y luces, que invita a quedarse.</p>
+  
+    <p>La música acompañaba muy bien el ambiente, y el volumen era más que adecuado para gente grande como uno, que todavía disfruta de poder charlar sin tener que estar gritando para escucharse. 😛</p>
+  
+    <p>Alrededor de las 22 hs, un DJ empezó a pasar música, y estaba muy buena también. De a poco se fue llenando el espacio y la noche transcurrió tranquila y agradable.</p>
+  
+    <figure class="nv-izq">
+      <img src="prisma-nueva-visita-logo.jpg" alt="Cartel luminoso de Prisma sobre un mural, con una planta suculenta en primer plano" loading="lazy">
+      <figcaption>El cartel de Prisma, con su luz cálida sobre el mural.</figcaption>
+    </figure>
+  
+    <p>Tomamos unas cervezas y compartimos unas papas con panceta y cheddar, ¡muy ricas! Esta vez los tequeños no fueron los protagonistas, pero, como comento más abajo en mi reseña original, no hubiese dudado en volver a pedirlos.</p>
+  
+    <p>Al momento de abonar, te aclaran la diferencia entre pagar en efectivo, que tiene un descuento, y hacerlo con tarjeta. ¡Un dato para tener en cuenta!</p>
+  
+    <p>Les dejo un par de imágenes de esa noche y espero que, si visitan Prisma, puedan disfrutar y tener una linda experiencia, ¡como la tuve yo!</p>
+  </section>
+
+  <div class="nv-separador"><span>📖 Reseña original</span></div>
 
   <div class="veredicto">
     <h3>⚡ Veredicto rápido</h3>
